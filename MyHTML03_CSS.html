@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>CSS-01</title>
+
+    <link rel="stylesheet" href="./myCSS.css"> <!--link 태그는 웬만하면 head 태그 안에 넣자.-->
+
+    <style>
+        table, td{
+            border-width: 1px;
+            border-color: black;
+            border-style: solid;
+            border: 1px solid grey;
+            text-align: center;         /*스타일에서 텍스트얼라인을 통해 셀의 글자정렬 가능*/        
+        }
+
+        table{
+            width:600px
+        }
+
+        /* #cel2{
+            text-align: right;
+        } */
+        .cel2{
+            text-align: right;
+        }
+        
+        .myCell{
+            background-color: lightgray;
+        }
+        /*id는 #으로 호출, class는 .으로 호출한다.*/
+        
+        div#cel2{
+            text-align: left; text-decoration: line-through;
+        }
+
+        div.myCell{
+            background-color: yellow; text-decoration: underline;
+        }                                   
+        /*id나 class에 요소를 앞에 입력하면 그 요소만 적용할 수 있다.*/
+        /*HTML 요소에 id와 class 속성을 가지고 동시에 동일한 요소를 CSS 선택 한 id가 class보다 우선적용*/
+
+        h1{background-color: yellow;}
+
+    </style>
+</head>
+<body>
+    <h1>CSS 개요</h1>
+
+    <table style="border: 1px black solid; margin:auto"> <!--마진오토는 테이블만-->
+            
+        <thead>
+            <tr>
+                <th>제목1</th> <!--제목은 td아니고 th로 하면 굵게, 가운데정렬 됨.-->
+                <th>제목2</th>
+                <th>제목3</th>
+            </tr>
+            <tr >
+                <td >데이터1</td>
+                <td id="cel2" class="myCell cel2">데이터2</td>
+                <td style="text-align: left;">데이터3</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>데이터11</td>
+                <td id="cel2" class="myCell cel2">데이터22</td>
+                <td style="text-align:left">데이터33</td>
+            </tr>
+            <tr>
+                <td>데이터111</td>
+                <td id="cel2" class="myCell cel3">데이터222</td>
+                <td style="text-align:left">데이터333</td>
+            </tr>
+            <tr>
+                <td>데이터1111</td>
+                <td id="cel2" class="myCell cel3">데이터2222</td>
+                <td style="text-align:left">데이터3333</td>
+            </tr>
+            <tr>
+                <td>데이터1111</td>
+                <td id="cel2" class="myCell">데이터2222</td>
+                <td style="text-align:left">데이터3333</td>
+            </tr>
+        </tbody>  <!--tfoot이란 것도 있음.-->
+        <caption>테이블 제목</caption>
+        </table>
+
+        <h1 id="cel2" class="myCell">CSS 개요1</h1>
+        <h1 id="cel2" class="myCell">CSS 개요2</h1>
+        <h1 id="cel2" class="myCell">CSS 개요3</h1>
+
+        <div id="cel2" class="myCell">DIV1</div>
+        <div id="cel2" class="myCell">DIV2</div>
+        <div id="cel2" class="myCell">DIV3</div>    
+
+        <hr>
+
+        <style>
+            strong{background-color: lightgreen;}
+
+            div div strong {background-color: aqua;}        /* div요소 안에 div 요소 안에 strong 적용*/
+
+            #div1 .div1 .strong1 {color: red; text-decoration: underline;} /* id div1 안에 있는 class div1 안에 있는 class strong1 적용*/ 
+
+        </style>
+
+        <div id="div1" class="div1">
+            <div id="div11" class="div1">
+                <strong id="strong1" class="strong1">CSS 선택자 연습1</strong>
+            </div>
+        </div>
+
+        <hr>
+
+        <div id="div2" class="div2">
+            <strong id="strong2" class="strong2">CSS 선택자 연습2</strong>
+        </div>
+
+        <link rel="stylesheet" href="./myCSS.css"> <!--link 태그는 웬만하면 head 태그 안에 넣자.-->
+
+        <h2>외부 스타일 적용</h2>
+
+
+
+</body>
+</html>

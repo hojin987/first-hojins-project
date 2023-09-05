@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+
+    <!-- 
+    <meta charset="ASCII" />
+    <meta charset="EUC-KR" />
+     -->
+
+    
+    <title>제목1</title>
+</head>
+<!-- 
+<body  bgcolor="lightgray"> -->
+<!-- <body background="./images/img100.jpg"> -->
+    <body style="background: url('./images/img100.jpg');">
+
+    <a href="#doc_last">맨 밑으로 이동</a><br> <!--#을 붙이니까 맨 밑으로 내려감 id가 설정된 요소-->
+
+    나의 첫 <mark>HTML</mark> 문서입니다. 배고파
+    텍스트1
+    <h1>Document <mark><ins>Title</ins></mark></h1>
+    텍스트1
+    텍스트1
+    <h2>Document Title</h2>
+    텍스트1
+    텍스트1
+    <h6>Document Title</h6>
+    텍스트1
+    <hr>
+    <pre>
+    텍스트1    텍스트2    
+
+    텍스트3    
+    텍스트4
+    </pre>
+    <hr>
+    텍스트1<br><br>
+    텍스트2<br>
+    텍스트&nbsp;1<br>
+    텍스트&nbsp;&nbsp;2<br>
+    텍스트&nbsp;&nbsp;&nbsp;3
+
+    <hr>
+    <h1>"엔티티코드" 실습</h1>
+
+    &nbsp;&nbsp; 작다 부등호는 반드시 엔티티코드로 표시되도록
+    작성해야 합니다. <br>
+
+    < 기호는 &lt; 코드로 표시합니다.
+
+    <hr>
+    
+    <h1 style="background-color: darkkhaki; color:red">12절 스타일</h1>
+
+    <h1 style="background-color: darkkhaki; color: red;">13절 색</h1>
+
+    <h1 style="background-color: darkkhaki; color: red;">14절 배경</h1>
+
+    <h2>12절 스타일</h2>
+    <h2>13절 색</h2>
+
+    <hr>
+    <style>
+    h2 {
+        background-color: darkkhaki; color: blue;
+    }
+    </style>
+    <h2>12절 스타일</h2>
+    <h2>13절 색</h2>
+    
+    <hr>
+    <h2 style="background-color: darkkhaki; color:red">12절 스타일</h2>
+
+    <h2 style="background-color: darkkhaki; color: red; text-align: right;">13절 색</h2>
+
+    <h2 style="background-color: darkkhaki; color: red; text-align: center;">14절 배경</h2>
+
+    <hr>
+
+    <strong style="background-color: darkkhaki; color: red;"> inline요소입니다.</strong>
+
+    <hr>
+
+    <h1>a 요소</h1>
+
+    <style>
+        h1:hover{color : yellow}
+        h1:active {color : white}
+    </style>
+
+    <a href="https://www.naver.com" target="_self">네이버</a>&nbsp;&nbsp;
+    <a href="https://www.daum.net" target="_blank">daum으로 이동</a>
+
+    <div id="doc_last">문서 끝</div>
+
+    <hr>
+
+    <h1>이미지 표시:img 요소</h1>
+    
+    <img src="./images/img103.jpg" width="100px" >&nbsp;
+    <img src="./images/img103.jpg" height="100">&nbsp;
+    <img src="./images/img103.jpg" width="100px" height="100">&nbsp;
+
+    <hr>
+    <img src="./images/img103.jpg" width="20%" >&nbsp; <!--%단위의 크기 조절은 height는 안됨.-->
+
+    <hr>
+
+    <h1>목록표시</h1>
+    <ul>
+        <li>사과</li>
+        <li>멜론</li>
+        <li>바나나</li>
+    </ul>
+
+    <ol>
+        <li>사과</li>
+        <li>멜론</li>
+        <li>바나나</li>
+    </ol>
+
+    <hr>
+    <h1>테이블 표현</h1>
+
+    <style>
+        table, td{
+            border-width: 1px;
+            border-color: black;
+            border-style: solid;
+        }
+
+        /* td {
+            width:200px
+        } */
+
+        table {
+            width:600px
+        }
+
+
+    </style>
+
+    <table style="border: 1px black solid;">
+    <thead>
+        <tr>
+            <th>제목1</th> <!--제목은 td아니고 th로 하면 굵게, 가운데정렬 됨.-->
+            <th>제목2</th>
+            <th>제목3</th>
+        </tr>
+        <tr>
+            <td style="border: 1px black solid; text-align:center;">데이터1</td>
+            <td style="border: 1px black solid; text-align:center;">데이터2</td>
+            <td style="border: 1px black solid; text-align:center;">데이터3</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>데이터11</td>
+            <td>데이터22</td>
+            <td>데이터33</td>
+        </tr>
+        <tr>
+            <td>데이터111</td>
+            <td>데이터222</td>
+            <td>데이터333</td>
+        </tr>
+        <tr>
+            <td>데이터1111</td>
+            <td>데이터2222</td>
+            <td>데이터3333</td>
+        </tr>
+    </tbody>  <!--tfoot이란 것도 있음.-->
+    </table>
+
+</body>
+</html>
+

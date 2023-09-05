@@ -1,0 +1,12 @@
+table, td{
+    border-width: 1px;
+    border-color: black;
+    border-style: solid;
+    border: 1px solid grey;
+    text-align: center;         /*스타일에서 텍스트얼라인을 통해 셀의 글자정렬 가능*/        
+
+}
+
+h1{background-color: yellow;}
+
+h2{background-color: aquamarine; color: blueviolet;}
