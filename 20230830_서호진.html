@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>20230830_서호진 과제제출</title>
+</head>
+<body>
+    <h1>과제 : 가위바위보</h1>
+
+<script>
+// <고려해야 되는 부분>
+// 내가 낼 수 있는 경우의 수 = 3 (가위: 1, 바위: 2, 보: 3 로 설정)
+// 상대방이 낼 수 있는 경우의 수 = 3 (가위: 1, 바위: 2, 보: 3 로 설정)
+// 일어나는 경우의 수 = 3 (이김, 짐, 비김)
+// (가위: 1, 바위: 2, 보: 3) 중 하나를 냈는가
+// 내가 가위: 1 일 때(+연산자) 지면 3, 이기면 4, 비기면 2
+// 내가 바위: 2 일 때(+연산자) 지면 5, 이기면 3, 비기면 4
+// 내가 보  : 3 일 때(+연산자) 지면 4, 이기면 5, 비기면 6
+
+/*<프로그래밍>
+1. 나의 값을 저장할 변수, 상대방의 값을 저장할 변수 2개 선언
+2. 가위: 1, 바위: 2, 보: 3 중에 하나를 선택했는지 확인하는 if - else문 작성
+3. 2번 if문 내에 내가 내는 값 3가지를 if - else if - else문을 통해 구현
+4. 3번 if - else if - else문 내에 상대방이 내는 값 3가지와 비교하는 if - else if - else문을 통해 구현
+5. document.write를 통해 결과내용 출력
+*/
+
+//배운것을 기반으로 작성해봤습니다.
+document.write ("가위: 1, 바위: 2, 보: 3 <br><br>")
+var x = 1 ; var y = 2 ; var sum = x + y ;
+
+if((x, y) == -1 || (x, y) == 0 || (x, y) == 1){
+    if(x == -1){
+        if(sum = -2){
+            document.write("비겼습니다.");
+        }else if(sum == -1){
+            document.write("상대방이 이겼습니다.");
+        }else{
+            document.write("당신이 이겼습니다.");
+        }
+    } else if(x == 0){
+        if(sum == 0){
+            document.write("비겼습니다.");
+        } else if(sum == 1){
+            document.write("상대방이 이겼습니다.");
+        } else{
+            document.write("당신이 이겼습니다.")
+        }
+    } else{
+        if(sum == 2){
+            document.write("비겼습니다.");
+        } else if(sum == 0){
+            document.write("상대방이 이겼습니다.");
+        } else{
+            document.write("당신이 이겼습니다.");
+        }
+    }
+} else{
+    document.write("-1 ~ 1 중 하나를 입력해주세요.");
+}
+
+
+</script>
+
+
+</body>
+</html>

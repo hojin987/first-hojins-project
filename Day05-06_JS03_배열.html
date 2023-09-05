@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>배열</title>
+</head>
+
+<body>
+<h1>배열이란</h1>
+
+<style>
+    table, td, th {border: 1px solid lightgrey}
+    table {width: 50%;text-align: center; border-collapse: collapse;}
+    td {width: 10%}
+</style>
+
+<script>
+// var arrLit = [1, true, "JavaScript"];             // 배열 리터럴을 이용하는 방법
+// var arrObj = Array(1, true, "JavaScript");        // Array 객체의 생성자를 이용하는 방법
+// var arrNewObj = new Array(1, true, "JavaScript"); // new 연산자를 이용한 Array 객체 생성 방법
+
+var myArray1 = [10, , "이순신"] ;
+var myArray2 = Array(20, null, "이순신") ;
+var myArray3 = new Array(20, undefined, "이순신") ;
+var myArray4 = new Array(30, null) ;
+var myArray5 = Array(30, null) 
+
+document.write("myArray1: " + myArray1 + "<br>") ;
+document.write("myArray2: " + myArray2 + "<br>") ;
+document.write("myArray3: " + myArray3 + "<br>") ;
+document.write("myArray4: " + myArray4 + "<br>") ;
+document.write("myArray5: " + myArray5 + "<br><br>") ;
+
+document.write("myArray1.length: " + myArray1.length + "<br>") ;
+document.write("myArray2.length: " + myArray2.length + "<br>") ;
+document.write("myArray3.length: " + myArray3.length + "<br>") ;
+document.write("myArray4.length: " + myArray4.length + "<br>") ;
+document.write("myArray5.length: " + myArray5.length + "<br><br>") ;
+
+document.write("myArray1 타입: " + (typeof myArray1) + "<br>") ;
+document.write("myArray2 타입: " + (typeof myArray2) + "<br>") ;
+document.write("myArray3 타입: " + (typeof myArray3) + "<br><br>") ;
+
+document.write("myArray1 타입: " + (Array.isArray(myArray1)) + "<br>") ;
+document.write("myArray2 타입: " + (Array.isArray(myArray2)) + "<br>") ;
+document.write("myArray3 타입: " + (Array.isArray(myArray3)) + "<br><br>") ;
+
+//배열의 하나의 값을 읽어오기 : 배열변수이름[인덱스], 값 사용하기
+var yourAge = myArray3[0];
+var yourGender = myArray3[1];
+var yourName = myArray3[2];
+
+document.write(yourAge + "<br>");
+document.write(yourGender + "<br>");
+document.write(yourName + "<br><br>");
+
+//배열의 모든 값을 읽어오기: for문을 사용합니다.
+for(var i = 0; i < myArray1.length; i++){
+    var myValue = myArray1[i] ; 
+    document.write("index: " + i + "번 위치: " + myValue + "<br>")
+}
+
+
+for(var myValue of myArray2){
+    //myValue변수에는 배열의 첫번째 위치부터 순차적으로 하나의 값을 가져와서
+    //외부 변수선언으로 가져와서 var를 삭제할 수 있다.
+    document.write(myValue + "<br>");
+}
+
+//for-in문 : 배열로부터 요소의 index를 가져옴, 값이 있는 경우에만 반복됩니다.
+//놔두십시오 껄껄
+for(var i in myArray1){
+    document.write(i + "위치 값: " + myArray1[i] + "<br>");
+}
+
+//배열의 특정 위치에 값을 대입(수정)
+myArray1[1] = "남성" ;
+myArray1[10] = "베트맨" ;
+document.write(myArray1.length + "<br>");
+for(var i in myArray1){
+    document.write(i + "위치 값: <br>");
+    document.write(i + "위치 값: " + myArray1[i] + "<br>");
+}
+
+document.write("<hr>");
+
+console.log(myArray1); //개발자 도구로 기존 배열 확인
+delete myArray1[10];
+console.log(myArray1);
+delete myArray1 ;       //오류는 없지만, 무시됨.
+console.log(myArray1);
+
+var myValue = "홍길동";
+console.log(myValue);
+delete myValue;         //변수 삭제나 값 삭제가 안됨.
+console.log(myValue);
+
+document.write("<hr>");
+
+var myArray6 = new Array(2);
+myArray6[0] = 20 ;
+myArray6[1] = "슈퍼맨" ;
+myArray6[5] = "남성" ;
+delete myArray6[5];
+myArray6.push("슈퍼맨"); //항상 맨 마지막에 새로운 공간을 생성하여 값을 추가한다.
+console.log(myArray6);
+
+document.write("<hr>");
+
+//다차원 배열 : 배열에 요소의 값으로 또 다른 배열이 대입된 형태입니다.
+var customer1 = ["홍길동", 'hong@이메일', '01012345678'];
+var customer2 = ["이순신", 'lee@이메일', '01023456789'];
+var customer3 = ["슈퍼맨", 'super@이메일', '01112345678'];
+var customer4 = ["베트맨", 'bat@이메일', '01212345678'];
+
+var customers = [customer1, customer2, customer3, customer4];
+
+var custName = "";
+
+//[문제] 테이블 형태로 위의 customers 배열의 값들을 웹 브라우저 화면에 표시하시오.
+/*<프로그래밍>
+1. 포문으로 만들어둔 테이블을 가져옵니다.
+2. customers의 인덱스, 내부배열의 인덱스를 for문의 변수로 증가시키도록 선언합니다.
+3. customers의 0번 인덱스의 값을 순차적으로 표시한 후, customers의 인덱스를 저장한 변수값을 증가시킵니다
+*/
+
+document.write("<table>")
+    //document.write("<tr><th>이름</th><th>이메일</th><th>연락처</th></tr>") 쉽게 가자ㅠ;;
+        document.write("<tr>");
+            document.write("<th>");
+            document.write("이름");
+            document.write("</th>");
+
+            document.write("<th>");
+            document.write("이메일");
+            document.write("</th>");
+
+            document.write("<th>");
+            document.write("연락처");
+            document.write("</th>");
+
+        document.write("<tr>");
+
+    for(var a = 0; a < customers.length ; a++){
+        
+        document.write("<tr>");
+            for (var b = 0; b < customers[a].length; b++){
+
+            var custName = customers[a][b];
+            document.write("<td>" + custName + "</td>");
+
+            }
+        document.write("<tr>");
+    }
+document.write("</table>")
+
+
+</script>
+
+<h1>배열의 비어 있는 위치에 값을 대입하기</h1>
+
+<script>
+    var testArr = ['a','b', null , ,'e'] ;
+
+    /*<프로그래밍>
+    1. for문으로 testArr의 인덱스를 증가시키도록 한다.
+    2. if문으로 testArr[x]의 값이 undefined인지 비교한다.
+    3. undefined인 경우 그 위치에 값이 없다는 뜻이므로 원하는 값을 대입한다.
+    4. 더 비어있는 공간이 있을 수 있으니, 원하는 값을 넣은 후 break를 선언한다.
+    */
+
+    for (var x = 0; x < testArr.length; x++){
+        if(testArr[x] == null){
+            testArr[x] = "슈퍼맨" ;
+            document.write(testArr[x]);
+        
+            break;
+        }
+        
+    }
+    console.log(testArr);
+
+    //[참고]
+    /*string(문자열)은 내부적으로 한글자마다 자동으로 위치 인덱스가 지정됩니다.
+    */
+
+
+
+
+</script>
+
+</body>
+</html>

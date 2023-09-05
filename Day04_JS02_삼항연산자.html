@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>삼항연산자</title>
+</head>
+<body>
+<h1>삼항연산자</h1> <!--(조견표현식)? 값에 준한 표현식1 : 값2 -->
+<p>동작 : 조건을 만족하면, 값1을 반환하고, 조건을 만족하지 않으면 값2를 각각 변환</p>
+
+<script>
+    var x= 6, y= 5, result = 0 ;
+    if (x == y){
+        document.write("x와 y는 같음 <br>");
+    } else{
+        if (x > y){
+            result = x ;
+        } else{
+            result = y ;
+        }
+
+        document.write("두 개의 숫자" + x + "와(과)" + y + 
+                       "중 더 큰 수는" + result + "입니다.<br>")
+    }
+
+//위의 코드를 삼항 연산자를 사용한 if문으로 다시 작성합니다.
+    var x1= 6, y1= 6, result1 = 0 ;
+        if (x1 == y1){
+            document.write("x1과 y1는 같음 <br>");
+        } else{
+            result1 = (x1 > y1) ? x1 : y1 ;
+
+            document.write("두 개의 숫자" + x1 + "와(과)" + y1 + 
+                        "중 더 큰 수는" + result1 + "입니다.<br>")
+    }
+//조금 다르지만, 삼항 연산자도 중첩될 수 있습니다.
+    result = (x1 == y1) 
+            ? "x1와 y1의 값이" + x1 + "로 같음" 
+            : (x1 > y1) ? x1 : y1 ;
+    alert(result) ; 
+</script>
+
+</body>
+</html>

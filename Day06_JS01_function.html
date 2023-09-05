@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>함수</title>
+</head>
+<body>
+<h1>JS 함수 개요</h1>
+
+<button type="button" onmouseover="myAlert()" >눌러보세요.</button>
+<hr>
+<script>
+    //문제: 버튼 클릭 시마다 "필요할 때마다 실행됩니다." 메시지가 경고창에 표시되는 함수를 작성하시오.
+
+    function myAlert(){
+        alert("필요할 때마다 실행됩니다.");
+    }
+
+</script>
+
+<h1>매개변수(Parameter), 인수(Argument), 반환 개념</h1>
+
+<input type="number" id="inputNum1" name="inputNum1">&nbsp;
+<input type="number" id="inputNum2" name="inputNum1">&nbsp;
+<input type="number" id="inputNum3" name="inputNum2">&nbsp;<br><br>
+
+<button type="button" onclick="myAdd();">눌러보세요1(매개변수가 없음).</button><br><br>
+<button type="button" onclick="yourAdd(3, 5);">눌러보세요2(매개변수가 있음).</button><br><br>
+<button type="button" onclick="hisAdd();">눌러보세요3</button><br><br>
+<button type="button" onclick="herAdd();">눌러보세요4</button><br><br>
+<button type="button" onclick="itsAdd();">눌러보세요5</button><br><br>
+<!-- "눌러보세요2" 버튼을 클릭하면, yourAdd(3, 5); 실행문이 실행됩니다. 
+     실행문에서 3은 a라는 매개변수에, 5는 b라는 매개변수에 각각 전달되는 인수(Argument)라고 합니다.-->
+<hr>
+
+<script>
+
+    // function showMeetingDay(){
+    // var inputNum = document.getElementById("inputNum").value;
+    // var result = document.getElementById("result") ;
+
+
+// function yourAdd(x, y){
+
+//     var myAddResult = x + y;
+//     alert(x + " 와 " + y + "의 합: " + myAddResult);
+
+// }
+
+function yourAdd(x, y){
+
+var myAddResult = x + y;
+//alert(x + " 와 " + y + "의 합: " + myAddResult);
+
+}
+
+function hisAdd(){
+
+    //var num1 = inputNum1.value; => HTML 요소의 id 속성을 변수로 사용할 수 있습니다.
+    var inputNum1 = document.getElementById("inputNum1").value;
+    var inputNum2 = document.getElementById("inputNum2").value;
+ 
+    var inputSum = Number(inputNum1) + Number(inputNum2);
+
+    //alert(inputNum1 + " 와 " + inputNum2 + "의 합: " + inputSum);
+
+}
+
+//실행 시에 숫자 인자값 2개를 각각 매개변수 x와 y로 전달해서 두 수를 더하는 기능만 구현됨
+function addTwoNums(x, y, z){
+    //alert(x + " 와 " + y + "의 합: " + (x + y));
+    //alert(x + " 와 " + y + " 와 " + z + "의 합: " + (x + y + z));
+
+}
+
+function herAdd(){
+
+    var num1 = Number(document.getElementById("inputNum1").value);
+    var num2 = Number(document.getElementById("inputNum2").value);
+    var num3 = Number(document.getElementById("inputNum3").value);
+
+    addTwoNums(num1, num2, num3);
+
+//반환(return) 개념
+//함수 실행 후, 특정 값을 외부로 보냅니다.
+
+}
+
+</script>
+
+
+<h1>함수 유형</h1>
+<!-- 
+       - 함수의 유형에 따라, 4가지 함수 정의 방법이 있습니다.
+         1) 매개변수가 없고, 반환되는 것도 없는 유형
+         2) 매개변수가 있고, 반환되는 것이 없는 유형
+         3) 매개변수가 없고, 반환되는 것이 있는 유형
+         4) 매개변수가 있고, 반환되는 것도 있는 유형
+
+ -->
+ <p>1. 매개변수와 반환값이 없는 유형</p>
+ <!--   function 함수이름() {
+            실행문들;   //return 반환값; 문장이 없습니다.
+        }
+
+        앞에서 실습으로 작성한 myAdd(), hisAdd() 함수가 이 유형에 해당됩니다.
+ -->
+<hr>
+
+<p>2. 매개변수와 반환값이 있는 유형</p>
+<!-- 
+    function 함수이름(매개변수이름, 매개변수이름,...) {
+           실행문들;
+           return 반환값 ;    //반환값은 변수 또는 계산식 또는 리터럴이 될 수 있습니다.
+       }
+      매개변수의 기능: 실행 시에 필요한 값을 외부로부터 전달받습니다.
+ -->
+
+ <script>
+    function add2Num2(a, b){
+        var result = a + b;
+        return result ; 
+
+        //return a + b ;
+    }
+
+//함수실행
+    yourAdd(4, 6)   //return문이 없는 함수 실행
+    console.log(add2Num2(5, 6))  //return문이 있는 함수 실행
+
+
+    var resultAdd2 = yourAdd(4, 6) ; //return문이 없는 함수는 yourAdd(4, 6); 형식으로 사용된다.
+    var resultAdd3 = add2Num2(5, 6) ;//return문이 있는 함수의 올바른 사용법입니다.
+
+    console.log(resultAdd2);
+    console.log(resultAdd3);
+
+ </script>
+
+<p>3. 매개변수가 없고 반환값이 있는 유형</p>
+
+<button type="button" onclick="herMainAdd();">눌러보세요6</button><br><br>
+
+<script>
+    function herAdd2(){
+
+//var num1 = inputNum1.value; => HTML 요소의 id 속성을 변수로 사용할 수 있습니다.
+    var inputNum1 = Number(document.getElementById("inputNum1").value);
+    var inputNum2 = Number(document.getElementById("inputNum2").value);
+
+    return (inputNum1 + inputNum2);
+}
+
+function herMainAdd(){
+
+    var herResult2 = herAdd2()
+    console.log("실행결과: " + herResult2);
+
+}
+
+var addResult2 = herAdd2()
+document.write("addResult2: " + addResult2);
+
+
+</script>
+
+
+
+</body>
+</html>

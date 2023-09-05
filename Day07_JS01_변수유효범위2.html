@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>변수 및 함수의 유효범위</title>
+</head>
+<body>
+    
+<script>
+var myValue1 ;
+var myValue2 = 10;
+document.write(myValue1 + " : " + myValue2 + "<hr>")
+
+function globalNum(){
+    document.write("(1) 함수 내부에서 변수 num의 값은 " + num + "입니다<br>")
+    
+    var num = 20;
+}
+
+globalNum();
+
+</script>
+
+<h2>주의사항2 : 전역변수와 로컬변수의 이름을 동일하게 사용하지 않는 것을 권장합니다.</h2>
+
+<script>
+    var myNum = 10;
+    document.write("(1): " + myNum+ "<hr>");
+
+    function globalNum2(){
+
+    document.write("(2): " + myNum + "입니다<br>");
+
+    myNum = 20;
+    document.write("(3): " + myNum + "입니다<br>");
+    
+}
+
+globalNum2();
+
+document.write("(4): " + myNum + "입니다<br>");
+
+</script>
+
+<h1>함수 매개변수와 인수</h1>
+
+<script>
+var x = 10, y = 20, z = 30; 
+
+function sub(a, b) {
+    return a - b ;
+}
+
+var result = sub(x, y); // x, y 는 함수 입장에서 인수
+
+document.write("sub 실행결과: " + result + "<hr>");
+
+//함수 선언 시에 매개변수에 기본값을 대입할 수 있습니다. 
+function addNum(a=0, b=0, c=0){
+    return a + b + c;
+}
+
+result = addNum(x, y, z);
+document.write("addNum 실행결과: " + result + "<hr>");
+
+result = addNum(x, y);
+document.write("addNum 실행결과: " + result + "<hr>");
+
+result = addNum(x);
+document.write("addNum 실행결과: " + result + "<hr>");
+
+result = addNum();
+document.write("addNum 실행결과: " + result + "<hr>");
+
+</script>
+
+</body>
+</html>

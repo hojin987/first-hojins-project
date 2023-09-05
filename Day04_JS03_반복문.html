@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>반복문:while</title>
+</head>
+<body>
+<h1>반복문 개요 및 while 문</h1>
+<h2>반복문 개요</h2>
+
+<script>
+//문제: 웹 브라우저에 1부터 10까지 숫자를 표시하시오
+//반복되는것은 표시, +1
+
+var a = 0 ;
+
+while (a < 10) {
+    a++;
+    document.write(a + "<br>");
+}
+
+//while 문의 { } 내에는 가급적 변수 선언문을 포함 시키지 마십시오.
+</script>
+<h1>1부터 10까지 더한 값을 표시하세요</h1>
+<!-- 프로그래밍
+1. 변수 i, j를 선언 및 0으로 초기화
+2. while문 조건문 작성 (j <10)
+3. 실행문에 j++를설정 후 i = i + j 를 설정하고 
+   document를 통해 브라우저에 표시  -->
+<script>
+    
+    var i = 0 ;
+    var j = 0 ;
+    
+    while (j < 10) {
+        j++;
+        i = i + j;
+    }
+    
+    document.write(i + "<br>");
+</script>
+
+<h1>while문으로 구구단 만들기</h1>
+<!-- 반복되는 것 표시, 곱하는 값의 1 증가
+    1. 변수 x, y를 선언 및 0으로 초기화
+    2. while 문 조건 작성 (x < 9)
+    3. 실행문에 x++를 설정
+    4. 3 * x 를 변수 y에 대입
+    5. while문 내에 document.write를 통해 원하는 내용 출력
+-->
+
+<!-- 과제 구구단 1단부터 9단까지 
+<프로그래밍>
+반복되는 것 : 표시, 곱하는수의 1증가, 9까지 곱하였을 때 곱해지는수의 1 증가
+
+1. 변수 x, y 를 선언 및 0으로 초기화
+2. while 문 조건 설정 (곱해지는 수 x < 9)
+3. while 문 안에 x++ 설정 후 내부에 while문 작성 조건 (곱하는 수 y < 9)
+4. 내부 while 문 내에 document.write를 통해 원하는 내용 출력
+5. 내부 while문 종료 시 y 값 0으로 초기화-->
+<script>
+    
+    var x = 0 ;
+    var y = 0 ;
+    
+    while (x < 9) {
+        
+        x++
+        document.write(x + "단<br>")
+
+        while (y < 9){
+            y++
+            document.write(x + " * " + y + " = " + x*y + "<br>");
+        }
+        document.write("<hr>")
+        y = 0;
+    }
+
+</script>
+
+<h1>do-while 문: while의 특별한 상황을 보완하기 위해서 사용</h1>
+<!--
+    특별한 상황: 
+        처음부터 조건을 만족하지 않는 경우라도, 
+        {  } 안의 실행문을 한 번은 실행하고 싶은 경우.
+-->
+<script>
+    var i = 11 ;
+    while (i <= 10) {
+        document.write(i + "<br>") ;
+        i = i + 1 ;
+    }
+</script>
+<script>
+    var j = 11 ;
+    do {
+        document.write(j + "<br>") ;
+        j = j + 1 ;
+    } while (j <= 10) ;
+</script>
+
+
+
+</body>
+</html>

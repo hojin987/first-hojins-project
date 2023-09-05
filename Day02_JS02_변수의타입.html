@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>변수의타입</title>
+</head>
+<body>
+    <h1>자바스크립트 변수의 타입</h1>
+    <!--선언된 변수의 대입된 값(데이터)에 따라서 자동으로 변수의 타입은 지정됩니다.
+    두 개의 문자열을 합치고 싶으면 "문자열1"+"문자열2" 코드를 사용합니다.-->
+
+    <p id="result">결과가 표시됩니다.</p>
+
+    <script>
+        var myP = document.getElementById("result");
+
+        myP.innerHTML = 1 + 1 + "<br>";      //2
+        myP.innerHTML += "1" + "1" + "<br>" ; //"11"
+        myP.innerHTML += 1 + "1" + "<br>" ;   //"11"
+        myP.innerHTML += 1 + 2 + 4 + "1" + 4 + 5 + 8 + "<br>" ; //"71458"
+
+        myP.innerHTML += 1 + true + "<br>" ;
+        console.log(typeof (1 + true)) ;
+
+        myP.innerHTML += "1" + true + "<br>" ;
+        console.log(typeof ("1" + true)) ;
+
+        myP.innerHTML = "<hr>" ;
+        
+        var a = "홍길동" ;
+        var b = "슈퍼맨" ;
+        myP.innerHTML += (a == b) ;
+
+        var myValue ;
+        console.log(myValue + ":" + typeof myValue) ;
+
+        myValue = 10;
+        console.log(myValue + ":" + typeof myValue) ;
+
+        myValue = undefined;
+        console.log(myValue + ":" + typeof myValue) ; //값을 없애고 싶을 때는 undefined가 아닌 null로 없애준다.
+
+        myValue = "";                                 //type : string, 문자열의 길이가 0이다.
+        console.log(myValue + ":" + typeof myValue) ;
+        
+        //앞에 선언된 동일한 이름의 변수를 뒤에 다시 선언하면, 뒤의 변수 선언문은 무시됩니다.
+        var myValue = undefined ;
+        var yourValue = null ;
+        var hisValue = "" ;
+        
+        // == 연산자 앞 뒤로 값을 비교해서 같으면, true
+        // != 연산자 앞 뒤의 값을 비교해서 다르면, true
+        console.log("myValue == yourValue : " + (myValue == yourValue)) ;
+        console.log("myValue == hisValue : " + (myValue == hisValue)) ;
+        console.log("hisValue == yourValue : " + (hisValue == yourValue)) ;
+        
+        console.log("myValue != yourValue : " + (myValue != yourValue)) ;
+        console.log("myValue != hisValue : " + (myValue != hisValue)) ;
+        console.log("hisValue != yourValue : " + (hisValue != yourValue)) ;
+
+        //자바스크립트 객체 정의 방법1
+        var myDog = {name: "해피", age: 3, kind : "진돗개"} ;
+        var yourDog = {name: "쫑", age: 1, kind : "푸들"} ;
+        console.log("나의 강아지 이름은 " + myDog.name + "이고, 나이는 " + myDog.age + "입니다") ;
+        console.log("당신의 강아지 이름은 " + yourDog.name + "이고, 나이는 " + yourDog.age + "입니다") ;
+
+        //자바스크립트 객체 정의 방법2
+        function Dog(name, age, kind){
+            this.name = name ;
+            this.age = age ;
+            this.kind = kind ;
+        }
+
+        var myDog1 = new Dog ("해피", 13, "진돗개") ;
+        var yourDog1 = new Dog ("쫑", 11, "푸들") ;
+        console.log("나의 강아지 이름은 " + myDog1.name + "이고, 나이는 " + myDog1.age + "입니다") ;
+        console.log("당신의 강아지 이름은 " + yourDog1.name + "이고, 나이는 " + yourDog1.age + "입니다") ;
+
+    </script>
+    
+</body>
+</html>

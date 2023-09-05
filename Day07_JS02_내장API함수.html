@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>내장API</title>
+</head>
+<body>
+<h1>웹브라우저 내장 API함수</h1>
+<h3>eval()</h3>
+<script>
+    //eval("문자열로 표현된 자바스크립트 코드")
+    var a = "10 + 20" ;  
+    //var myAlert = "alert(\"주의하세요\")" ;
+    document.write("a: " + a + "<br>") ;
+    //document.write("myAlert: " + myAlert + "<br>") ;
+    
+    var b = eval(a) ;
+    //var myAlert2 = eval(myAlert) ;
+    document.write("b: " + b + "<br>") ;
+    //document.write("myAlert2: " + myAlert2 + "<br>") ;
+
+
+</script>
+
+<h3>isFinite()</h3>
+<!-- 
+    isFinite(인수값): 인수값이 "유한한 숫자값"(무한대의 반대)이면 true를 반환함
+ -->
+<script>
+    document.write(isFinite(123) + "<br>");     //true
+    document.write(isFinite(123e100) + "<br>"); //true
+    document.write(isFinite(0) + "<br>");       //true
+    document.write(isFinite(true) + "<br>");    //true
+    document.write(isFinite(false) + "<br>");   //true
+    document.write(isFinite(null) + "<br>");    //true //조심
+    document.write(isFinite("123") + "<br>");   //true //숫자로만 된 문자열을 숫자로 변환 후, 처리됨
+    document.write(isFinite("") + "<br>");      //true //조심: 값이 없으면 검증 못함
+    document.write(isFinite("홍길동") + "<br>"); //false
+    document.write(isFinite(undefined) + "<br>"); //false
+    document.write(isFinite(NaN) + "<br>");       //false
+    document.write(isFinite(Infinity) + "<br>");  //false
+</script>
+
+<h3>isNaN()</h3>
+<!-- inNaN(인수값): 전달된 값이 "NaN 이면(숫자가 아니면)" true를 반환함 
+
+    인수로 전달된 값이 숫자가 아니면, 숫자로 강제 변환(true/false 값,숫자문자로만 된 문자열, )하여 검사합니다.
+
+-->
+<script>
+    document.write(isNaN(123) + "<br>");     //false
+    document.write(isNaN(123e100) + "<br>"); //false
+    document.write(isNaN(0) + "<br>");       //false
+    document.write(isNaN(true) + "<br>");    //false
+    document.write(isNaN(false) + "<br>");   //false
+    document.write(isNaN(null) + "<br>");    //false
+    document.write(isNaN("123") + "<br>");   //false
+    document.write(isNaN("") + "<br>");      //false
+    document.write(isNaN("홍길동") + "<br>"); //true 
+    document.write(isNaN(undefined) + "<br>"); //true  //조심 
+    document.write(isNaN(NaN) + "<br>");       //true 
+    document.write(isNaN(Infinity) + "<br>");  //false
+
+    //이 함수는 숫자로의 강제 변환에 따라 예상치 못한 결과를 얻을 수 있으므로 
+    //ECMAScript 6부터는 Number.isNaN(인자값) 메소드의 사용을 권장하고 있습니다.
+    document.write("<hr>");
+</script>
+
+<h3>parseInt(), parseFloat()함수</h3>
+
+<script>
+    document.write((parseFloat("123") + 1) + "<br>");
+    document.write((parseFloat("123.000") + 1) + "<br>");
+    document.write((parseFloat("123.456") + 1) + "<br>");   //실수부까지 표기
+    document.write("<hr>");
+    document.write((parseInt("123") + 1) + "<br>");
+    document.write((parseInt("123.000") + 1) + "<br>");
+    document.write((parseInt("123.456") + 1) + "<br>");     //정수부만 표기
+    document.write("<hr>");
+    document.write(parseFloat("  123  ") + "<br>"); //123
+    document.write(parseFloat("123 초콜릿") + "<br>"); //123
+    document.write(parseFloat("123.98초콜릿") + "<br>"); //123
+    document.write(parseFloat("초콜릿 123") +"<br>"); //NaN
+    document.write(parseFloat(true) + "<br>"); //NaN
+    document.write(parseFloat(false) + "<br>"); //NaN       //실수까지만 인식해서 표기
+    document.write("<hr>");
+    document.write(parseInt("  123  ") + "<br>"); //123
+    document.write(parseInt("123 초콜릿") + "<br>"); //123
+    document.write(parseInt("123.98초콜릿") + "<br>"); //123
+    document.write(parseInt("초콜릿 123") +"<br>"); //NaN
+    document.write(parseInt(true) + "<br>"); //NaN
+    document.write(parseInt(false) + "<br>"); //NaN         //정수까지만 인식해서 표기
+    document.write("<hr>");
+    document.write((Number("123") + 1) + "<br>");
+    document.write((Number("123.000") + 1) + "<br>");
+    document.write((Number("123.456") + 1) + "<br>");
+    document.write("<hr>");
+    document.write(Number("  123  ") + "<br>"); //123
+    document.write(Number("123 초콜릿") + "<br>"); //123
+    document.write(Number("123초콜릿") + "<br>"); //123
+    document.write(Number("초콜릿 123") +"<br>"); //NaN
+    document.write(Number(true) + "<br>"); //NaN
+    document.write(Number(false) + "<br>"); //NaN
+    document.write("<hr>");
+    document.write(Number("") + "<br>");                    
+    document.write(parseInt("") + "<br>");
+    document.write(parseFloat("") + "<br>");
+    document.write(Number(null) + "<br>");                  //Number 함수만 여백, null값을 0으로 받음.
+    document.write(parseInt(null) + "<br>");
+    document.write(parseFloat(null) + "<br>");
+
+</script>
+
+<h3>encodeURI() 함수와 encodeURIComponent 함수: 매우 중요</h3>
+<h3>decodeURI() 함수와 decodeURIComponent 함수: 매우 중요</h3>
+
+<script>
+//alert("이 메시지가<br>웹브라우저\r경고\b창에\n표시됩니다.");
+
+    var myURI1 = "https://velog.io/@ syoung125/개념공부-URI는-무엇이고-URL은-무엇일까" ;
+    var myURI2 = "http://google.com/+search,php?name=홍길동&city=서울" ;
+
+    //한글 문자열을 ==> %문자열로 변환
+    //인코딩
+    var encMyURI1 = encodeURI(myURI1) ;
+    var encMyURI2 = encodeURI(myURI2) ;
+
+    document.write("encMyURI1: " + encMyURI1 + "<br>");
+    document.write("encMyURI2: " + encMyURI2 + "<br><br>");
+
+    var encCompURI1 = encodeURIComponent(myURI1);
+    var encCompURI2 = encodeURIComponent(myURI2);
+
+    document.write("enccompURI1: " + encCompURI1 + "<br>")
+    document.write("enccompURI2: " + encCompURI2 + "<br><br>");
+    document.write("<hr>");
+
+
+    //디코딩
+    var decMyURI1 = decodeURI(encMyURI1) ;
+    var decMyURI2 = decodeURI(encMyURI2) ;
+
+    document.write("decMyURI1: " + decMyURI1 + "<br>")
+    document.write("decMyURI2: " + decMyURI2 + "<br><br>");
+    document.write("<hr>");
+
+    var decCompURI1 = decodeURIComponent(encCompURI1) ;
+    var decCompURI2 = decodeURIComponent(encCompURI2) ;
+
+    document.write("decCompURI1: " + decCompURI1 + "<br>")
+    document.write("decCompURI2: " + decCompURI2 + "<br><br>");
+    document.write("<hr>");
+
+    var escMyURI1 = escape(myURI1) ;
+    var escMyURI2 = escape(myURI2) ;
+
+    document.write("escMyURI1: " + escMyURI1 + "<br>");
+    document.write("escMyURI2: " + escMyURI2 + "<br><br>");
+    document.write("<hr>");
+
+</script>
+
+
+</body>
+</html>

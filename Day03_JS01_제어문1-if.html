@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>제어문1: if문</title>
+</head>
+<body>
+<h1>if문1 : 단순 if문</h1>
+<script>
+    var x = 30; var y = 20;
+
+    if (x==y){
+        document.write("x와 y는 같습니다. <br>");
+    
+    }
+    if (x < y){
+        document.write("x가 y보다 작습니다.<br>");
+    }
+    if (x > y){
+        document.write("x가 y보다 큽니다.<hr>");
+    }
+
+    var z = null ;
+
+    if (z == ""){
+        document.write("z(z==\"\")에 값이 없습니다. <br>");
+    }
+
+    if (z == null){
+        document.write("z(z==null)에 값이 없습니다. <br>");
+    }
+
+    var k = "";
+
+    if (k == null){
+        document.write("k(k==null)에 값이 없습니다. <br>");
+    }
+
+    if (k == ""){
+        document.write("k(k==\"\")에 값이 없습니다. <br>");
+    }
+
+    var j ;
+
+    if (j == null){
+        document.write("j(j==null)에 값이 없습니다. <br>");
+    }
+
+    if (j ==""){
+        document.write("j(j==\"\")에 값이 없습니다. <hr>");
+    }
+
+    if (j === null){
+        document.write("j(j==null)에 값이 없습니다. <br>");
+    }
+
+    if (j === ""){
+        document.write("j(j==\"\")에 값이 없습니다. <hr>");
+    }
+
+    var myVar = "이순신" ;
+
+    if (myVar != null && myVar =="홍길동"){
+        //실행문, 바람직한 조건문 (null값을 확인한 후 뒤의 값과 비교);
+    }
+
+    if (myVar == "홍길동" && myVar != null){
+        //실행문 ;
+    }
+
+    //자바스크립트 프로토타입 객체 선언
+    function Dog(color, name, age) {
+
+        this.color = color;
+        this.name = name;
+        this.age = age;
+        // 변수에 저장한 함수 객체를 익명함수
+        this.breed = function() {
+            return this.color + " " + this.age;
+
+        }
+
+    };
+
+    var myDog = new Dog("갈색", "뿡이", 8) ;
+    var yourDog = new Dog("흰색", "해피", 3) ;
+
+    var myDog = {color : "갈색", name : "뿡이", age:8,
+                breed: function(){
+                    return this.color + " " + this.age;
+                }
+    };
+    var yourDog = {color : "흰색", name : "해피", age:3,
+                breed: function(){
+                    return this.color + " " + this.age;
+                }
+    };
+
+    document.write("나의 강아지 이름: " + myDog.name + "<br>");
+    document.write("당신의 강아지 이름: " + yourDog.name + "<br>");
+
+    document.write(myDog.breed() + "<br>");
+    document.write(yourDog.breed() + "<br>");
+    document.write("=============================<br>");
+
+    //웹 브라우저 내장 Date() 함수와 Date() 객체
+
+    var myDate = Date();        //함수
+    var yourDate = new Date();  //객체
+
+    console.log("myDate 값: " + myDate);
+    console.log("yourDate 값: " + yourDate);
+
+    console.log("myDate 타입: " + (typeof myDate));     //string
+    console.log("yourDate 타입: " + (typeof yourDate)); //object(Date() 객체가 저장됨)
+    
+    //console.log("myDate.getDate(): " + myDate.getDate());
+    console.log("yourDate.getDay(): " + yourDate.getDay());
+    console.log("yourDate.getFullYear(): " + yourDate.getFullYear());
+    console.log("yourDate.getMonth(): " + yourDate.getMonth());
+    console.log("yourDate.getMonth() 타입: " + typeof(yourDate.getMonth()));
+    console.log("yourDate.getDate(): " + yourDate.getDate());
+    console.log("yourDate.getHours(): " + yourDate.getHours());
+    console.log("yourDate.getMinutes(): " + yourDate.getMinutes());
+    console.log("yourDate.getSeconds(): " + yourDate.getSeconds());
+    console.log("yourDate.getTime(): " + yourDate.getTime());
+
+    //문제, 8/31일이 시험일입니다.
+    //내일 일자가 시험일인 경우, "집에 가서 공부해야죠"를 alert 출력합니다
+    //시험 일자가 아닌경우 아무것도 하지 않습니다. (단순if문)
+    //날짜를 불러 올 객체 선언하고 get함수를 통해 월과 일을 브라우저에서 받아온다.
+    //if문을 통해 브라우저값과 지정한 날짜의 값을 비교, 참일 경우 alert을 통해 문구 출력
+    //거짓일 경우 아무것도 일어나지 않음.
+    //<강사님버전>
+    /*
+    날짜로부터 월과 일을 추출해서 8/31과 비교해서, 8/31과 동일하면, 집에가서 공부해야죠를 표시
+    1. 오늘 날짜 객체를 저장할 변수 선언
+    2. 날짜로 부터 읽어온 월이 8과 같고 일이 31과 같으면, alert문 실행
+    */
+
+    // console.log("todayDate.getMonth(): " + todayDate.getMonth());
+    // console.log("todayDate.getDate(): " + todayDate.getDate());
+    
+    var todayDate = new Date();
+    var examMonth = todayDate.getMonth() + 1;
+    var examDate = todayDate.getDate() ; //+ 3;
+
+    if(examMonth == 8 && examDate == 31){
+        alert("집에 가서 공부해야죠")
+    }
+
+</script>
+
+<h1>if 문2: if-else문</h1>
+<script>
+    x = 30; y = 20;
+
+    // if (x == y){
+    //     document.write("x와 y는 같습니다. <br>");
+
+    // }
+    // if (x < y){
+    //     document.write("x가 y보다 작습니다.<br>");
+    // }
+    // if (x > y){
+    //     document.write("x가 y보다 큽니다.<hr>");
+    // }
+
+    if (x == y) {
+        document.write("x와 y는 같습니다. <br>");
+    } else{
+        if (x > y){
+            document.write("x가 y보다 큽니다.<hr>");
+        } else{
+
+        }
+    }
+
+</script>
+
+<h1>if 문3: if(조건식) - else if(조건식) 문</h1>
+<script>
+    var x = 30; var y = 20;
+
+if (x==y){
+    document.write("x와 y는 같습니다. <br>");
+
+} else if (x < y){
+    document.write("x가 y보다 작습니다.<br>");
+} else if (x > y){
+    document.write("x가 y보다 큽니다.<hr>");
+}
+</script>
+
+<h1>if 문4: if(조건식) - else if(조건식) - else 문</h1>
+<script>
+    if (x==y){
+    document.write("x와 y는 같습니다. <br>");
+
+} else if (x < y){
+    document.write("x가 y보다 작습니다.<br>");
+} else{
+    document.write("x가 y보다 큽니다.<hr>");
+}
+</script>
+
+<h1>문제 : if문 실습</h1>
+
+<!--문제(요구사항) : 숫자를 입력받아서
+0~6일 때 일~토 요일에 만나요, 7, 8, 9를 입력하면 매일 만나요!!! 표시-->
+
+<!--
+<프로그래밍>
+1. 버튼을 눌렀을 때 실행할 함수 선언
+2. input 요소에서 id를 통하여, 입력된 값을 받아와 저장할 변수 선언
+3. div요소를 선택해서 저장할 변수 선언
+4. 2번에서 변수에 저장한 값과 비교할 if문 작성
+5. 실행문에 출력할 내용을 div요소의 innerHTML에 저장할 코드 작성
+<강사님버전>
+1. 함수 형태로 구현
+2. 입력값에서 숫자만 처리되게 고려 => 숫자 이외의 글자가 입력되면 잘못입력한 메시지 표시
+3. 입력값이 숫자인 경우, 버튼으 ㄹ누를 때 해당 값에 대응되는 결과 표시.
+4. 다음의 기능이 처리되는 함수를 작성
+    1) getDay 매서드를 통한 값을 저장할 변수 선언
+    2) 입력값을 읽어와서 변수에 저장
+    3) 입력값과 요일의 값을 비교해서 
+        => 입력값이 오늘 요일에 해당되면 문자열 출력
+        => 7, 8, 9 인경우 매일 만나요
+        => 숫자가 아닌 값이 입력될 경우, 다시 입력 메세지 출력
+    4) id 속성이 result인 div에 문자열 출력 
+5. 읽어온 값과 사용자가 input에 입력한 값을 비교
+-->
+
+<input type="text" id="inputNum" name="inputNum" maxlength="1">&nbsp;&nbsp;
+<!--number type일 경우 maxlength 속성이 동작하지 않는다.-->
+<!-- id name 문장전체에서 하나의 요소를 찾기, class 여러 요소에 동일한 디자인 적용 -->
+<button type="button" onclick="showMeetingDay()">클릭해보세요...</button>
+<hr>
+<div id="result">만날 요일이 표시됩니다.</div>
+
+<script>
+    
+function showMeetingDay(){
+    var inputNum = document.getElementById("inputNum").value;
+    // <강사님 버전> var inputValue = inputNum.value;
+    var result = document.getElementById("result") ;
+    
+    if(inputNum == ""){
+        alert("0~9까지의 숫자 한글자를 입력해주세요.") ;
+        //result.innerHTML="0~9까지의 숫자 한글자를 입력해주세요." ;
+        return;
+    }else if (inputNum == 0){
+        result.innerHTML = "일요일에 만나요"
+    }else if (inputNum == 1){
+        result.innerHTML = "월요일에 만나요"
+    }else if (inputNum == 2){
+        result.innerHTML = "화요일에 만나요"
+    }else if (inputNum == 3){
+        result.innerHTML = "수요일에 만나요"
+    }else if (inputNum == 4){
+        result.innerHTML = "목요일에 만나요"
+    }else if (inputNum == 5){
+        result.innerHTML = "금요일에 만나요"
+    }else if (inputNum == 6){
+        result.innerHTML = "토요일에 만나요"
+    }else if (inputNum == 7 || inputNum == 8 || inputNum == 9){
+        result.innerHTML = "매일만나요!!"
+    }else {
+        result.innerHTML = "다시 입력해주세요"
+    }
+    // result.innerHTML = resultStr 변수에 입력값을 저장하여 반환
+    //return 문은 항상 함수 안에서만 설정
+}
+</script>
+
+</body>
+</html>

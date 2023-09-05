@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Math 객체</title>
+</head>
+<body>
+<h1>내장API객체01: Math객체</h1>
+
+<h3>Math.min() 메서드, Math.max() 메서드 </h3>
+
+<script>
+    document.write(Math.min() + "<br>");
+    document.write(Math.min(1, 10, -100, -10, 1000, 0) + "<br>");
+    document.write(Math.min(1, 10, -100.5, -10, 1000, 0) + "<br>") ; 
+    document.write(Math.min(1, 10, -100, -10, "-1000", 0) + "<br>") ; 
+    document.write(Math.min(1, 10, -100, -10, "문자열", 0) + "<br>") ;
+
+    var myScores = [10, 20, 40.5, 5] ;
+    document.write(Math.min(myScores) + "<br>") ;  //NaN
+    document.write(Math.min() + "<hr>");
+
+    document.write(Math.max() + "<br>");
+    document.write(Math.max(1, 10, -100, -10, 1000, 0) + "<br>");
+    document.write(Math.max(1, 10, -100.5, -10, 1000, 0) + "<br>") ; 
+    document.write(Math.max(1, 10, -100, -10, "-1000", 0) + "<br>") ;
+    document.write(Math.max(1, 10, -100, -10, "문자열", 0) + "<br>") ;
+
+</script>
+
+<h3>Math.round(실수)메서드</h3>
+
+<script>
+    document.write(Math.round() + "<br>");
+    document.write(Math.round(10.29) + "<br>");
+    document.write(Math.round(10.5) + "<br>");
+    document.write(Math.round(10) + "<br>");
+    document.write(Math.round("-10.5") + "<br>");
+    document.write(Math.round("-10.51") + "<hr>");
+</script>
+
+<h3>Math.floor(실수)메서드, Math.ceil(실수)메서드 </h3>
+
+<script>
+    document.write(Math.floor() + "<br>") ;  //NaN
+    document.write(Math.floor(10.29) + "<br>") ;  //10
+    document.write(Math.floor(10.5) + "<br>") ; //10
+    document.write(Math.floor(10) + "<br>") ; //10
+    document.write(Math.floor("-10.5") + "<br>") ; //-11
+    document.write(Math.floor("-10.51") + "<hr>") ; //-11
+
+    document.write(Math.ceil() + "<br>") ;  //NaN
+    document.write(Math.ceil(10.29) + "<br>") ;  //11
+    document.write(Math.ceil(10.5) + "<br>") ; //11
+    document.write(Math.ceil(10) + "<br>") ; //10
+    document.write(Math.ceil("-10.5") + "<br>") ; //-10
+    document.write(Math.ceil("-10.51") + "<hr>") ; //-10
+</script>
+
+
+<h3>Math.random()메서드</h3>
+
+<script>
+    document.write(Math.random());
+    /*    
+    //Math.random() 활용방법 하나를 소개합니다.
+    // 1 ~ 10 까지 숫자 중 랜덤으로 하나의 수를 표시
+    //      0 <=       Math.random     < 1
+    //1 ~ 10 까지이므로 10개의 숫자 
+    //     0 *10 <=       Math.random()          < 1 * 10
+                   0.01x,0.1xx,0.2xx,..0.9xx
+           0    <=  0.1x,1.xx,2.xx,.....9.xx    < 10
+    //10 개의 숫자가 1부터 시작해서 10입니다. 1이 시작 수라는 것을 고려
+    //
+               0 + 1    <=  0.1x,1.xx,2.xx,.....9.xx    < 10 + 1
+                            1.1x,2.xx,3.xx     10.xx
+    //소수점 이하를 버림
+            Math.floor(1) <= Math.floor((Math.random() * 10) + 1) < Math.floor(11)
+                  1              1, 2, 3,...,10                            11
+            Math.floor((Math.random() * 연속된 특정 범위의 정수 갯수 ) + 시작 수)
+            랜덤 주사위 숫자 반환 코드: Math.floor((Math.random() * 6 + 1))
+            1 ~ 100 점수 중 75 점 이상 점수만 반환하는 코드를 작성해보세요
+            Math.floor((Math.random() * 26) + 75)
+*/
+</script>
+
+<h1>주사위던지기게임</h1>
+<script>
+    var diceNum = Math.floor(Math.random() * 6 + 1)
+    document.write(diceNum + "<hr>")
+
+    //75점 이상 랜덤한 점수를 표시
+    var scoreNum = Math.floor(Math.random() * 26 + 75)
+    document.write(scoreNum)
+</script>
+
+</body>
+</html>

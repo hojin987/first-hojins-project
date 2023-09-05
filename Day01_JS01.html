@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>JS-1일차 실습</title>
+</head>
+<body>
+    <h1>버튼 눌러서 이름 나오게 하기</h1>
+    <button type="button" onclick="myFirstFunc(); alert('함수 실행이 완료됨')">눌러보세요</button>
+
+    <hr>
+    <h2 onclick="myFirstFunc()">제목</h2>
+    <span onclick="myFirstFunc()">표시하고 싶은 내용입니다.</span> <!--span으로 onclick 구현-->
+    
+    <script>
+    //리터럴: 코드에 명시된 실제 값
+    //변수: 값을 저장해서 담는 그릇
+    //변수를 사용하지 않을 때
+    // alert("홍길동");
+    // alert("홍길동");
+    // alert("홍길동");
+
+    //변수를 사용할 때
+    var cName ;
+    cName = "슈퍼맨";
+
+    var myName = "배트맨";
+
+    // alert(myName);
+    // alert(myName);
+    // alert(myName);
+
+    // myName = "슈퍼맨";
+    // alert(myName);
+
+    function myFirstFunc(){
+        var yourName = "이순신";
+        alert(yourName);
+    }
+    
+
+
+    </script>
+
+</body>
+</html>

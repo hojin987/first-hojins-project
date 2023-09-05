@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>변수의 유효범위</title>
+</head>
+<body>
+<h1>변수의 유효범위</h1>
+
+<h2>if 문의 {} 안에서 선언된 변수를 else {}에서 사용할 수 있을까?</h2>
+
+
+<button type = "button" id = "btn1" onclick="varScopeTest1()">변수의 적용범위 테스트</button>
+
+<script>
+    // var myValue = 2;
+    // // var myName = null;
+
+    // if(myValue == 3){
+    //     var myName = null;
+    //     myName = "홍길동";
+    //     document.write("myName: " + myName + "<br>")
+    // }else{
+    //     myName = "슈퍼맨";
+    //     document.write("myName: " + myName + "<br>")
+    // }
+
+    // document.write("myName: " + myName + "<br>")
+    // document.write("<hr>")
+
+    var myValue = 2;    //전역변수
+
+    function varScopeTest1(){
+        
+        myName = null;  //로컬변수
+        document.write("myName: " + myName + "<br>") ;
+
+        myAge = 90;
+
+        if(myValue == 3){
+            myName = "홍길동";
+            var myTel = "전화번호1"
+            document.write("if블록 myName: " + myName + "<br>");
+            document.write("if블록 myTel: " + myTel + "<br>");
+        }else{
+            myName = "슈퍼맨";
+            myTel = "전화번호1"
+            document.write("else블록 myName: " + myName + "<br>");
+            document.write("else블록 myTel: " + myTel + "<br>");
+        }
+
+        document.write("if문 외부 myName: " + myName + "<br>");
+        document.write("if문 외부 myTel: " + myTel + "<br>");
+        document.write("<hr>")
+    }
+    document.write("함수 외부 myName: " + myName + "<br>");
+    document.write("함수 외부 myTel: " + myTel + "<br>");
+    document.write("<hr>")
+
+
+</script>
+
+</body>
+</html>
